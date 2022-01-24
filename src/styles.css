@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+/* CSS Reset */
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+p,
+em,
+img,
+form,
+label,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+footer,
+header,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
