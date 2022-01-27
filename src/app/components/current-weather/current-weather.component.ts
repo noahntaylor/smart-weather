@@ -9,12 +9,28 @@ import { WeatherService } from 'src/app/services/weather.service';
 export class CurrentWeatherComponent {
   location: string = "Vancouver"
   currentWeather: any;
+  weather: Weather;
 
   constructor(private weatherService: WeatherService) { 
-    this.weatherService.getCurrentWeather(this.location).subscribe(
+    this.weatherService.getCurrentWeather().subscribe(
       result => {
         this.currentWeather = result;
-        console.log(this.currentWeather); 
     });
+
+    this.getWeather();
+  }
+
+  // Something incorrect about this implementation
+  getWeather() {
+    var cityName = this.currentWeather?.name;
+    var currentConditions = this.currentWeather?.weather[0]?.description;
+    var temp = this.currentWeather?.main?.temp;
+    this.weather = new Weather(cityName, currentConditions, temp);
+    console.log(this.weather);    
+  }
+}
+
+export class Weather {
+  constructor(public cityName: string, public currentConditions: string, public temperature: number){    
   }
 }

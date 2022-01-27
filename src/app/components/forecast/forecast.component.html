@@ -1,1 +1,12 @@
-<p>forecast works!</p>
+<div class="forecast-container">
+  <h2>7 Day Forecast</h2>
+  <div class="week-container">
+    <div *ngFor="let index of days" class="day-container">
+      <span
+        >Conditions: {{ forecast?.daily[index]?.weather[0]?.description }}</span
+      >
+      <span>High: {{ forecast?.daily[index]?.temp?.max }}deg C</span>
+      <span>Low: {{ forecast?.daily[index]?.temp?.min }}deg C</span>
+    </div>
+  </div>
+</div>
