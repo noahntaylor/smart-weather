@@ -9,7 +9,7 @@ import { WeatherService } from 'src/app/services/weather.service';
 export class ForecastComponent {
   forecast: any;
   sevenDayForecast: DailyForecast[];
-  days = [0, 1, 2, 3, 4, 5, 6];
+  days = [0, 1, 2, 3, 4, 5, 6];  
 
   constructor(private weatherService: WeatherService) { 
     this.weatherService.getSevenDayForecast().subscribe(

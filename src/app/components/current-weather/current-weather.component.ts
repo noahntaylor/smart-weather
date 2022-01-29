@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { WeatherService } from 'src/app/services/weather.service';
 
+import { faRunning, faDumbbell, faBiking, faSkiingNordic, faSnowflake  } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'current-weather',
   templateUrl: './current-weather.component.html',
@@ -10,6 +12,12 @@ export class CurrentWeatherComponent {
   location: string = "Vancouver"
   currentWeather: any;
   weather: Weather;
+  // font-awesome icons
+  faRunning = faRunning;
+  faDumbbell = faDumbbell;
+  faBiking = faBiking;
+  faSkiingNordic = faSkiingNordic;
+  faSnowflake = faSnowflake;
 
   constructor(private weatherService: WeatherService) { 
     this.weatherService.getCurrentWeather().subscribe(

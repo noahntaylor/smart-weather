@@ -2,6 +2,7 @@
   <h2>7 Day Forecast</h2>
   <div class="week-container">
     <div *ngFor="let index of days" class="day-container">
+      <activities></activities>
       <span
         >Conditions: {{ forecast?.daily[index]?.weather[0]?.description }}</span
       >
