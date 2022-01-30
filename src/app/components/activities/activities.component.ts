@@ -13,11 +13,30 @@ export class ActivitiesComponent implements OnInit {
   faDumbbell = faDumbbell;
   faBiking = faBiking;
   faSkiingNordic = faSkiingNordic;
-  faSnowflake = faSnowflake;
+  faSnowshoe = faSnowflake;
 
   constructor() { }
 
-  ngOnInit(): void {
+  isRunningWeather() {
+    return true;
   }
 
+  isGymWeather() {
+    return true;
+  }
+
+  isBikingWeather() {
+    return true;
+  }
+
+  isSkiingWeather() {
+    return true;
+  }
+
+  isSnowshoeWeather() {
+    return true;
+  }
+
+  ngOnInit(): void {
+  }
 }

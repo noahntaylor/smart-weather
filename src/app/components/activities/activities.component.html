@@ -1,17 +1,17 @@
 <div class="activities-container">
-  <div class="activity">
+  <div *ngIf="isRunningWeather()" class="activity">
     <fa-icon class="fa-3x" [icon]="faRunning"></fa-icon>
   </div>
-  <div class="activity">
+  <div *ngIf="isGymWeather()" class="activity">
     <fa-icon class="fa-3x" [icon]="faDumbbell"></fa-icon>
   </div>
-  <div class="activity">
+  <div *ngIf="isBikingWeather()" class="activity">
     <fa-icon class="fa-3x" [icon]="faBiking"></fa-icon>
   </div>
-  <div class="activity">
+  <div *ngIf="isSkiingWeather()" class="activity">
     <fa-icon class="fa-3x" [icon]="faSkiingNordic"></fa-icon>
   </div>
-  <div class="activity">
-    <fa-icon class="fa-3x" [icon]="faSnowflake"></fa-icon>
+  <div *ngIf="isSnowshoeWeather()" class="activity">
+    <fa-icon class="fa-3x" [icon]="faSnowshoe"></fa-icon>
   </div>
 </div>

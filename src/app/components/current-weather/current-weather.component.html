@@ -1,10 +1,11 @@
 <div class="current-weather-container">
-  <h2>Current Weather: {{ currentWeather?.name }}</h2>
+  <h2>Current Weather: {{ currentWeather.cityName }}</h2>
   <div class="current-container">
+    <span>{{ currentWeather.dayOfWeek }}</span>
+    <span>{{ currentWeather.date }}</span>
     <activities></activities>
-    <span
-      >Current conditions: {{ currentWeather?.weather[0]?.description }}</span
-    >
-    <span>Temperature: {{ currentWeather?.main?.temp }}deg C</span>
+    <span>Current conditions: {{ currentWeather.conditions }}</span>
+    <span>Temperature: {{ currentWeather.temperature }} deg C</span>
+    <span>Wind: {{ currentWeather.wind }} km/h</span>
   </div>
 </div>

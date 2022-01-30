@@ -1,0 +1,13 @@
+<div class="forecast-container">
+  <h2>5 Day Weather History</h2>
+  <div class="week-container">
+    <div *ngFor="let dailyWeather of weatherHistory" class="day-container">
+      <span>{{ dailyWeather.dayOfWeek }}</span>
+      <span>{{ dailyWeather.date }}</span>
+      <activities></activities>
+      <span>Conditions: {{ dailyWeather.conditions }}</span>
+      <span>Temperature: {{ dailyWeather.temperature }} deg C</span>
+      <span>Wind: {{ dailyWeather.wind }} km/h</span>
+    </div>
+  </div>
+</div>

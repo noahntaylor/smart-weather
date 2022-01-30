@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ActivitiesComponent } from './activities.component';
+import { WeatherHistoryComponent } from './weather-history.component';
 
-describe('ActivitiesComponent', () => {
-  let component: ActivitiesComponent;
-  let fixture: ComponentFixture<ActivitiesComponent>;
+describe('WeatherHistoryComponent', () => {
+  let component: WeatherHistoryComponent;
+  let fixture: ComponentFixture<WeatherHistoryComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ActivitiesComponent ]
+      declarations: [ WeatherHistoryComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ActivitiesComponent);
+    fixture = TestBed.createComponent(WeatherHistoryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

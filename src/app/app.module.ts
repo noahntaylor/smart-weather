@@ -9,14 +9,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CurrentWeatherComponent } from './components/current-weather/current-weather.component';
 import { ForecastComponent } from './components/forecast/forecast.component';
-import { ActivitiesComponent } from './activities/activities.component';
+import { ActivitiesComponent } from './components/activities/activities.component';
+import { WeatherHistoryComponent } from './components/weather-history/weather-history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CurrentWeatherComponent,
     ForecastComponent,
-    ActivitiesComponent
+    ActivitiesComponent,
+    WeatherHistoryComponent
   ],
   imports: [
     BrowserModule,
