@@ -11,6 +11,7 @@ import { CurrentWeatherComponent } from './components/current-weather/current-we
 import { ForecastComponent } from './components/forecast/forecast.component';
 import { ActivitiesComponent } from './components/activities/activities.component';
 import { WeatherHistoryComponent } from './components/weather-history/weather-history.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { WeatherHistoryComponent } from './components/weather-history/weather-hi
     CurrentWeatherComponent,
     ForecastComponent,
     ActivitiesComponent,
-    WeatherHistoryComponent
+    WeatherHistoryComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

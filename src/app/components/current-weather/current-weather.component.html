@@ -4,8 +4,17 @@
     <span>{{ currentWeather.dayOfWeek }}</span>
     <span>{{ currentWeather.date }}</span>
     <activities></activities>
-    <span>Current conditions: {{ currentWeather.conditions }}</span>
-    <span>Temperature: {{ currentWeather.temperature }} deg C</span>
-    <span>Wind: {{ currentWeather.wind }} km/h</span>
+    <div class="row">
+      <span>Current conditions:</span>
+      <span>{{ currentWeather.conditions }}</span>
+    </div>
+    <div class="row">
+      <span>Temperature:</span>
+      <span>{{ currentWeather.temperature }} deg C</span>
+    </div>
+    <div class="row">
+      <span>Wind:</span>
+      <span>{{ currentWeather.wind }} km/h</span>
+    </div>
   </div>
 </div>

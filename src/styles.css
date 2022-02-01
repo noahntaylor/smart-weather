@@ -30,6 +30,8 @@ section {
 
 body {
   font-family: "Roboto", sans-serif;
+  background-color: #212121;
+  color: #fff;
 }
 
 /* Shared Component CSS  */

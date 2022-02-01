@@ -1,0 +1,19 @@
+.header-container {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #023e8a;
+  height: 30px;
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  filter: drop-shadow(1px 1px 2px #000);
+}
+
+.header {
+  font-size: 25px;
+}
