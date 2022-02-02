@@ -4,7 +4,7 @@
     <div *ngFor="let dailyForecast of sevenDayForecast" class="day-container">
       <span>{{ dailyForecast.dayOfWeek }}</span>
       <span>{{ dailyForecast.date }}</span>
-      <activities></activities>
+      <activities [currentWeather]="dailyForecast"></activities>
       <div class="row">
         <span>Conditions:</span>
         <span>{{ dailyForecast.conditions }}</span>

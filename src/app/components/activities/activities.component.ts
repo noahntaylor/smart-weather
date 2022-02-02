@@ -10,7 +10,6 @@ import { Weather } from 'src/app/models/weather.model';
 })
 export class ActivitiesComponent implements OnInit {
   @Input("currentWeather") currentWeather: Weather;
-  @Input("weatherHistory") weatherHistory: Weather[];
 
   // font-awesome icons
   faRunning = faRunning;
@@ -22,23 +21,82 @@ export class ActivitiesComponent implements OnInit {
   constructor() { }
 
   isRunningWeather() {
-    return true;
+    var isRunningWeather;
+
+    if (this.currentWeather.conditions.toUpperCase().includes("RAIN") && !this.currentWeather.conditions.toUpperCase().includes("LIGHT")) {
+      isRunningWeather = false;
+    }
+    else if (this.currentWeather.conditions.toUpperCase().includes("SNOW")){
+      isRunningWeather = false;
+    }
+    else {
+      isRunningWeather = true;
+    }
+
+    return isRunningWeather;
   }
 
   isGymWeather() {
-    return true;
+    var isGymWeather;
+
+    if (this.currentWeather.conditions.toUpperCase().includes("SUN")){
+      isGymWeather = false;
+    }
+    else if (!this.currentWeather.conditions.toUpperCase().includes("RAIN") && !this.currentWeather.conditions.toUpperCase().includes("SNOW")){
+      isGymWeather = false;
+    } else {
+      isGymWeather = true;
+    }
+
+    return isGymWeather;
   }
 
   isBikingWeather() {
-    return true;
+    var isBikingWeather;
+
+    if (this.currentWeather.conditions.toUpperCase().includes("RAIN")) {
+      isBikingWeather = false;
+    }
+    else if (this.currentWeather.conditions.toUpperCase().includes("SNOW")){
+      isBikingWeather = false;
+    }
+    else {
+      isBikingWeather = true;
+    }
+
+    return isBikingWeather;
   }
 
   isSkiingWeather() {
-    return true;
+    var isSkiingWeather;
+
+    if (!this.currentWeather.conditions.toUpperCase().includes("SNOW")){
+      isSkiingWeather = false;
+    }
+    else if (this.currentWeather.conditions.toUpperCase().includes("RAIN")) {
+      isSkiingWeather = false;
+    }
+    else {
+      isSkiingWeather = true;
+    }
+
+    return isSkiingWeather;
   }
 
   isSnowshoeWeather() {
-    return true;
+    var isSnowshoeWeather;
+
+    if (!this.currentWeather.conditions.toUpperCase().includes("SNOW")){
+      isSnowshoeWeather = false;
+    }
+    else if (this.currentWeather.conditions.toUpperCase().includes("RAIN")) {
+      isSnowshoeWeather = false;
+    }
+    else {
+      isSnowshoeWeather = true;
+    }
+
+    return isSnowshoeWeather;
   }
 
   ngOnInit(): void {

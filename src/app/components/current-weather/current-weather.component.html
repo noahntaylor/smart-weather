@@ -3,7 +3,7 @@
   <div class="current-container">
     <span>{{ currentWeather.dayOfWeek }}</span>
     <span>{{ currentWeather.date }}</span>
-    <activities></activities>
+    <activities [currentWeather]="currentWeather"></activities>
     <div class="row">
       <span>Current conditions:</span>
       <span>{{ currentWeather.conditions }}</span>
