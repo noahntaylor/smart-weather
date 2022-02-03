@@ -25,7 +25,7 @@ export class WeatherHistoryComponent implements OnInit {
         var temperature = this.historicWeatherObject?.current?.temp;
         var wind = this.historicWeatherObject?.current?.wind_speed * 3.6;
 
-        this.weatherHistory.push(new Weather(date, dayOfWeek, conditions, temperature, wind));
+        this.weatherHistory.push(new Weather(date, dayOfWeek, conditions, temperature, +wind.toFixed(2)));
 
         this.historicWeatherObject = {};
       })      

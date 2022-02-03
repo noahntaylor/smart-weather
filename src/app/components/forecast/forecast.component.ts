@@ -25,7 +25,7 @@ export class ForecastComponent {
           var high = this.forecastObject?.daily[i]?.temp?.max;
           var low = this.forecastObject?.daily[i]?.temp?.min;
 
-          this.sevenDayForecast.push(new Weather(date, dayOfWeek, conditions, temperature, wind, high, low));
+          this.sevenDayForecast.push(new Weather(date, dayOfWeek, conditions, temperature, +wind.toFixed(2), high, low));
         }
     });
   }  

@@ -32,7 +32,7 @@ export class CurrentWeatherComponent {
         var low = this.currentWeatherObject?.main?.temp_min;
         var cityName = this.currentWeatherObject?.name;        
         
-        this.currentWeather = new Weather(date, dayOfWeek, conditions, temperature, wind, high, low, cityName);
+        this.currentWeather = new Weather(date, dayOfWeek, conditions, temperature, +wind.toFixed(2), high, low, cityName);
     });
 
     // Get weather history for current day

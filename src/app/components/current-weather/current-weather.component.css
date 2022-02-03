@@ -2,9 +2,11 @@
   border-radius: 10px;
   padding: 20px;
   max-width: 400px;
+  min-width: 225px;
   background-color: #102a43c0;
   filter: drop-shadow(1px 1px 2px #000);
   margin: 20px 0;
+  margin-right: 40px;
 }
 
 .current-container {
@@ -14,6 +16,7 @@
   margin: 5px 5px;
   border-radius: 10px;
   font-size: 14px;
+  background-color: #334e6883;
 }
 
 .row {
@@ -21,4 +24,10 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+@media screen and (max-width: 500px) {
+  .current-weather-container {
+    margin-right: 0;
+  }
 }

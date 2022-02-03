@@ -1,9 +1,26 @@
 .app-main {
   margin: 20px 50px;
-  margin-top: 80px;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-.container {
+.row-container {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+}
+
+@media screen and (max-width: 1080px) {
+  .row-container {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 500px) {
+  .app-main {
+    justify-content: center;
+    margin: 20px 20px;
+    margin-top: 60px;
+  }
 }
