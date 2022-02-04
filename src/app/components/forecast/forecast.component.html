@@ -2,8 +2,10 @@
   <h2>7 Day Forecast</h2>
   <div class="week-container">
     <div *ngFor="let dailyForecast of sevenDayForecast" class="day-container">
-      <span>{{ dailyForecast.dayOfWeek }}</span>
-      <span>{{ dailyForecast.date }}</span>
+      <div class="row">
+        <span>{{ dailyForecast.dayOfWeek }}</span>
+        <span>{{ dailyForecast.date }}</span>
+      </div>
       <activities [currentWeather]="dailyForecast"></activities>
       <div class="row">
         <span>{{ dailyForecast.conditions }}</span>

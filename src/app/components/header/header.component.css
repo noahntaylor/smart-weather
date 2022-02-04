@@ -1,6 +1,6 @@
 .header-container {
   position: fixed;
-  z-index: 100;
+  z-index: 102;
   top: 0;
   left: 0;
   width: 100%;
@@ -16,4 +16,69 @@
 
 .header {
   font-size: 25px;
+}
+
+.menu-icon {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 20px;
+  margin: 0 8px;
+  margin-right: 15px;
+}
+.menu-icon:hover {
+  cursor: pointer;
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.menu {
+  position: fixed;
+  margin: 0;
+  padding: 0 20px;
+  padding-top: 50px;
+  height: 100vh;
+  width: 250px;
+  left: 0;
+  top: 0;
+  z-index: 101;
+  padding-top: 65px;
+  background-color: #37363c;
+  color: #fff;
+}
+
+.blur {
+  position: fixed;
+  width: calc(100vw);
+  height: 100vh;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.row {
+  padding: 5px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 350;
+}
+
+.paragraph {
+  font-size: 16px;
+  font-weight: 350;
+  margin: 10px 0;
+}
+
+.legend {
+  margin: 25px 0;
+}
+
+.legend-heading {
+  margin-bottom: 8px;
 }

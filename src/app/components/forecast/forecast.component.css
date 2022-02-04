@@ -2,6 +2,7 @@
   border-radius: 10px;
   padding: 20px;
   min-width: 225px;
+  min-height: 200px;
   background-color: #102a43c0;
   filter: drop-shadow(1px 1px 2px #000);
   margin: 20px 0;
@@ -23,7 +24,7 @@
   font-size: 14px;
   background-color: #334e6883;
   min-width: 150px;
-  max-width: 400px;
+  max-width: 350px;
   flex-grow: 1;
 }
 
@@ -37,6 +38,12 @@
 @media screen and (min-width: 500px) {
   .week-container {
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 700px) {
+  .week-container {
+    flex-direction: row;
+    justify-content: flex-start;
   }
 }

@@ -25,4 +25,14 @@ export class DateService {
 
     return previousDays;
   }
+
+  getDayOfWeek(unixDate: number): string {      
+    var date = new Date(unixDate);  
+    return  date.toLocaleString('en-us', {weekday: 'long'});
+  }
+
+  getMonthAndDay(unixDate: number): string {
+    var date = new Date(unixDate);
+    return date.toLocaleString('en-us', {month: 'long', day:'numeric'});
+  }
 }

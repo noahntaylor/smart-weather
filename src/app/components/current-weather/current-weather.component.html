@@ -1,8 +1,10 @@
 <div class="current-weather-container">
   <h2>Current Weather: {{ currentWeather.cityName }}</h2>
   <div class="current-container">
-    <span>{{ currentWeather.dayOfWeek }}</span>
-    <span>{{ currentWeather.date }}</span>
+    <div class="row">
+      <span>{{ currentWeather.dayOfWeek }}</span>
+      <span>{{ currentWeather.date }}</span>
+    </div>
     <activities [currentWeather]="currentWeather"></activities>
     <div class="row">
       <span>Current conditions:</span>

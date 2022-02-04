@@ -1,3 +1,48 @@
 <div class="header-container">
+  <fa-icon
+    *ngIf="!showMenu"
+    (click)="showMenu = !showMenu"
+    [icon]="faBars"
+    class="fa-lg menu-icon"
+  ></fa-icon>
+  <fa-icon
+    *ngIf="showMenu"
+    (click)="showMenu = !showMenu"
+    [icon]="faTimes"
+    class="fa-lg menu-icon"
+  ></fa-icon>
   <h1 class="header">SMART WEATHER</h1>
+</div>
+<div *ngIf="showMenu" class="menu-container">
+  <div class="menu">
+    <p class="paragraph">
+      Smart Weather provides weather data for the current day, five previous
+      days, and the seven day forecast. Using this data, the best workout or
+      activity recommendations are displayed for each day!
+    </p>
+    <div class="legend">
+      <h2 class="legend-heading">Legend:</h2>
+      <div class="row">
+        <fa-icon [icon]="faRunning" class="fa-2x"></fa-icon>
+        <span>Running</span>
+      </div>
+      <div class="row">
+        <fa-icon [icon]="faDumbbell" class="fa-2x"></fa-icon>
+        <span>Indoor Activity</span>
+      </div>
+      <div class="row">
+        <fa-icon [icon]="faBiking" class="fa-2x"></fa-icon>
+        <span>Biking</span>
+      </div>
+      <div class="row">
+        <fa-icon [icon]="faSkiingNordic" class="fa-2x"></fa-icon>
+        <span>Skiing</span>
+      </div>
+      <div class="row">
+        <fa-icon [icon]="faSnowshoe" class="fa-2x"></fa-icon>
+        <span>Snowshoeing</span>
+      </div>
+    </div>
+  </div>
+  <div (click)="showMenu = false" class="blur"></div>
 </div>
