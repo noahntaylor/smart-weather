@@ -48,6 +48,10 @@ export class ActivitiesComponent implements OnInit {
       isGymWeather = true;
     }
 
+    if (!this.isRunningWeather() && !this.isBikingWeather() && !this.isSkiingWeather() && !this.isSnowshoeWeather()) {
+      isGymWeather = true;
+    }
+
     return isGymWeather;
   }
 
