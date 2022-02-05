@@ -13,8 +13,8 @@ export class WeatherService {
   constructor(private httpClient: HttpClient) { }  
 
   // Get required current weather data with Current Weather OpenWeatherMap API
-  getCurrentWeather(){
-    return this.httpClient.get(`https://api.openweathermap.org/data/2.5/weather?q=Vancouver&units=metric&appid=${environment.apiKey}`);
+  getCurrentWeather(location: string){
+    return this.httpClient.get(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${environment.apiKey}`);
   }
 
   // Get required forecast data with One Call OpenWeatherMap API

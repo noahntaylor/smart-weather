@@ -3,6 +3,8 @@ import { Weather } from 'src/app/models/weather.model';
 import { DateService } from 'src/app/services/date.service';
 import { WeatherService } from 'src/app/services/weather.service';
 
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'current-weather',
   templateUrl: './current-weather.component.html',
@@ -10,6 +12,8 @@ import { WeatherService } from 'src/app/services/weather.service';
 })
 export class CurrentWeatherComponent {
   location: string = "Vancouver";
+  changeLocation: boolean = false;
+  faTimes = faTimes;
 
   currentWeatherObject: any = {};
   currentWeather: Weather = new Weather("", "", "", 0, 0);
@@ -22,7 +26,7 @@ export class CurrentWeatherComponent {
     
     // Temporarily remove call to API ****
     
-    // this.weatherService.getCurrentWeather().subscribe(
+    // this.weatherService.getCurrentWeather(this.location).subscribe(
     //   result => {
     //     this.currentWeatherObject = result;
     //     var date = this.currentWeatherObject.dt;
@@ -45,8 +49,17 @@ export class CurrentWeatherComponent {
     var wind = 12.6;
     var high = 4;
     var low = 0.76;
-    var cityName = "Vancouver";  
+    var cityName = this.location;  
 
     this.currentWeather = new Weather(date, dayOfWeek, conditions, temperature, +wind.toFixed(2), high, low, cityName);
+  }
+
+  toggleChangeLocation() {
+    this.changeLocation = !this.changeLocation;
+  }
+
+  keepLocation(currentLocation: string) {
+    this.location = currentLocation;
+    this.changeLocation = !this.changeLocation;
   }
 }

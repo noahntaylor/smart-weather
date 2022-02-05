@@ -35,6 +35,14 @@
   justify-content: space-between;
 }
 
+.date-row {
+  border-bottom: 0.5px solid #fff;
+  margin-bottom: 5px;
+  padding-bottom: 2px;
+  padding-bottom: 4px;
+  font-weight: bold;
+}
+
 @media screen and (min-width: 500px) {
   .week-container {
     flex-direction: row;

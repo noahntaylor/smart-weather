@@ -2,7 +2,7 @@
   border-radius: 10px;
   padding: 20px;
   max-width: 400px;
-  min-width: 225px;
+  min-width: 250px;
   min-height: 200px;
   background-color: #102a43c0;
   filter: drop-shadow(1px 1px 2px #000);
@@ -25,6 +25,54 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.date-row {
+  border-bottom: 0.5px solid #fff;
+  margin-bottom: 5px;
+  padding-bottom: 2px;
+  padding-bottom: 4px;
+  font-weight: bold;
+}
+
+.city {
+  align-self: center;
+}
+
+.location-input {
+  align-self: center;
+  height: 18px;
+  max-width: 50%;
+  min-width: 100px;
+  margin-right: 6px;
+  border-radius: 6px;
+  padding: 2px 5px;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.buttons-container button {
+  margin: 5px 2px;
+}
+
+.location-button {
+  background-color: #26374783;
+  border: none;
+  padding: 6px 10px;
+  margin: 5px;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 250;
+  white-space: nowrap;
+}
+.location-button:hover {
+  cursor: pointer;
+  background-color: #334e6883;
 }
 
 @media screen and (max-width: 500px) {
