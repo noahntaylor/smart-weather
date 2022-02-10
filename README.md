@@ -1,3 +1,7 @@
 Smart Weather
 
-A web app that displays weather data and provides workout and activity recommendations based on current weather and forecast.
+Available: https://noahntaylor.github.io/smart-weather/
+
+Smart Weather provides weather data for the current day, five previous days, and the seven day forecast. Using this data, the best workout or activity recommendations are displayed for each day!
+
+Built using Angular and OpenWeatherMap weather API.
