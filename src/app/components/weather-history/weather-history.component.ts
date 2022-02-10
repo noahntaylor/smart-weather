@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { WeatherLocation } from 'src/app/models/weather-location.model';
 import { Weather } from 'src/app/models/weather.model';
 import { DateService } from 'src/app/services/date.service';
 import { WeatherService } from 'src/app/services/weather.service';
@@ -8,47 +9,43 @@ import { WeatherService } from 'src/app/services/weather.service';
   templateUrl: './weather-history.component.html',
   styleUrls: ['./weather-history.component.css']
 })
-export class WeatherHistoryComponent implements OnInit {
-  historyDates: any[] = [];
+export class WeatherHistoryComponent {
+  @Input() weatherLocation: WeatherLocation;
+
   historicWeatherObject: any = {};
   weatherHistory: Weather[] = [];  
 
-  constructor(private dateService: DateService) {
-    this.historyDates = this.dateService.getDatesInUnix();
-    
-    // Temporarily remove call to API ****
+  constructor(private weatherService: WeatherService, private dateService: DateService) { }
 
-    // this.historyDates.forEach(date => {
-    //   this.weatherService.getWeatherHistory(date).subscribe(result => {
-    //     this.historicWeatherObject = result;
-    //     var date = this.historicWeatherObject?.current?.dt;
-    //     var dayOfWeek = new Date(date).getDay().toString();
-    //     var conditions = this.historicWeatherObject?.current?.weather[0]?.description;
-    //     var temperature = this.historicWeatherObject?.current?.temp;
-    //     var wind = this.historicWeatherObject?.current?.wind_speed * 3.6;
-
-    //     this.weatherHistory.push(new Weather(date, dayOfWeek, conditions, temperature, +wind.toFixed(2)));
-
-    //     this.historicWeatherObject = {};
-    //   })      
-    // });
-
-    for (var i=0; i<5; i++) {
-      var unixDate = this.historyDates[i];
-      var date = this.dateService.getMonthAndDay(+unixDate);    
-      var dayOfWeek = this.dateService.getDayOfWeek(+unixDate);
-      var conditions = "Sun and rain";
-      var temperature = 2.98;
-      var wind = 12.6;
-      var high = 4;
-      var low = 0.76;
-      var cityName = "Vancouver";
-
-      this.weatherHistory.push(new Weather(date, dayOfWeek, conditions, temperature, +wind.toFixed(2), high, low, cityName));
-    }
-   }
-
-  ngOnInit(): void {
+  ngOnChanges() {
+    this.getFiveDayWeatherHistory();
   }
 
+  getFiveDayWeatherHistory() {
+    const today: Date = new Date(Date.now());
+    var previousDay: Date = new Date();
+
+    for (var i=5; i>0; i--) {      
+      previousDay.setDate(today.getDate() - i);
+      var historyDate = Math.floor(previousDay.getTime() / 1000).toString();
+      this.getWeatherHistory(historyDate);
+    }
+  }
+
+  getWeatherHistory(historyDate: string) {
+    this.weatherService.getWeatherHistory(this.weatherLocation.lat, this.weatherLocation.long, historyDate).subscribe(result => {
+      this.historicWeatherObject = result;        
+      var unixDate = this.historicWeatherObject?.current?.dt;
+      var dateString = this.dateService.getMonthAndDay(+unixDate);
+      var dayOfWeek = this.dateService.getDayOfWeek(+unixDate);
+      var conditions = this.historicWeatherObject?.current?.weather[0]?.description;
+      conditions = conditions.charAt(0).toUpperCase() + conditions.slice(1);      
+      var temperature = this.historicWeatherObject?.current?.temp;
+      var wind = this.historicWeatherObject?.current?.wind_speed * 3.6;
+
+      this.weatherHistory.push(new Weather(dateString, dayOfWeek, conditions, temperature, +wind.toFixed(2)));
+
+      this.historicWeatherObject = {};
+    });    
+  }
 }

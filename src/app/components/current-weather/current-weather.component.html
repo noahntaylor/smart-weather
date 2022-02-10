@@ -1,18 +1,34 @@
 <div class="current-weather-container">
   <h2>Current Weather</h2>
   <div *ngIf="!changeLocation" class="row">
-    <h3 class="city">{{ currentWeather.cityName }}</h3>
+    <h3 class="city">{{ weatherLocation.city }}</h3>
     <button (click)="toggleChangeLocation()" class="location-button">
       Change Location
     </button>
   </div>
   <div *ngIf="changeLocation" class="row">
-    <input [(ngModel)]="location" class="location-input" type="text" />
+    <select
+      #selectedLocation
+      name="location"
+      id="location"
+      class="location-input"
+    >
+      <option
+        *ngFor="let city of locations"
+        [value]="city"
+        [selected]="isSelected(city)"
+      >
+        {{ city.city }}
+      </option>
+    </select>
     <div class="buttons-container">
-      <button (click)="toggleChangeLocation()" class="location-button">
+      <button
+        (click)="updateLocation(selectedLocation); toggleChangeLocation()"
+        class="location-button"
+      >
         Update Location
       </button>
-      <button (click)="keepLocation(location)" class="location-button">
+      <button (click)="toggleChangeLocation()" class="location-button">
         <fa-icon [icon]="faTimes" class="fa-sm menu-icon"></fa-icon>
       </button>
     </div>
@@ -24,12 +40,11 @@
     </div>
     <activities [currentWeather]="currentWeather"></activities>
     <div class="row">
-      <span>Current conditions:</span>
       <span>{{ currentWeather.conditions }}</span>
     </div>
     <div class="row">
       <span>Temperature:</span>
-      <span>{{ currentWeather.temperature }} deg C</span>
+      <span>{{ currentWeather.temperature }} &#176;C</span>
     </div>
     <div class="row">
       <span>Wind:</span>

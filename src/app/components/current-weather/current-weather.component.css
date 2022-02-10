@@ -41,12 +41,14 @@
 
 .location-input {
   align-self: center;
-  height: 18px;
+  height: 25px;
   max-width: 50%;
   min-width: 100px;
   margin-right: 6px;
   border-radius: 6px;
+  font-size: 15px;
   padding: 2px 5px;
+  flex-grow: 1;
 }
 
 .buttons-container {

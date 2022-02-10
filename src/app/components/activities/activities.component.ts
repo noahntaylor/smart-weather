@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { faRunning, faDumbbell, faBiking, faSkiingNordic, faSnowflake } from '@fortawesome/free-solid-svg-icons';
 import { Weather } from 'src/app/models/weather.model';
@@ -8,7 +8,7 @@ import { Weather } from 'src/app/models/weather.model';
   templateUrl: './activities.component.html',
   styleUrls: ['./activities.component.css']
 })
-export class ActivitiesComponent implements OnInit {
+export class ActivitiesComponent {
   @Input("currentWeather") currentWeather: Weather;
 
   // font-awesome icons
@@ -26,10 +26,11 @@ export class ActivitiesComponent implements OnInit {
     if (this.currentWeather.conditions.toUpperCase().includes("RAIN") && !this.currentWeather.conditions.toUpperCase().includes("LIGHT")) {
       isRunningWeather = false;
     }
-    else if (this.currentWeather.conditions.toUpperCase().includes("SNOW")){
+    else if (this.currentWeather.conditions.toUpperCase().includes("SNOW") && !this.currentWeather.conditions.toUpperCase().includes("LIGHT")){
       isRunningWeather = false;
-    }
-    else {
+    } else if (this.currentWeather.wind > 80) {
+      isRunningWeather = false;
+    } else {
       isRunningWeather = true;
     }
 
@@ -63,8 +64,9 @@ export class ActivitiesComponent implements OnInit {
     }
     else if (this.currentWeather.conditions.toUpperCase().includes("SNOW")){
       isBikingWeather = false;
-    }
-    else {
+    } else if (this.currentWeather.wind > 50) {
+      isBikingWeather = false;
+    } else {
       isBikingWeather = true;
     }
 
@@ -74,13 +76,14 @@ export class ActivitiesComponent implements OnInit {
   isSkiingWeather() {
     var isSkiingWeather;
 
-    if (!this.currentWeather.conditions.toUpperCase().includes("SNOW")){
+    if (!this.currentWeather.conditions.toUpperCase().includes("SNOW") || this.currentWeather.conditions.toUpperCase().includes("LIGHT")){
       isSkiingWeather = false;
     }
     else if (this.currentWeather.conditions.toUpperCase().includes("RAIN")) {
       isSkiingWeather = false;
-    }
-    else {
+    } else if (this.currentWeather.wind > 80) {
+      isSkiingWeather = false;
+    } else {
       isSkiingWeather = true;
     }
 
@@ -90,19 +93,17 @@ export class ActivitiesComponent implements OnInit {
   isSnowshoeWeather() {
     var isSnowshoeWeather;
 
-    if (!this.currentWeather.conditions.toUpperCase().includes("SNOW")){
+    if (!this.currentWeather.conditions.toUpperCase().includes("SNOW") || this.currentWeather.conditions.toUpperCase().includes("LIGHT")){
       isSnowshoeWeather = false;
     }
     else if (this.currentWeather.conditions.toUpperCase().includes("RAIN")) {
       isSnowshoeWeather = false;
-    }
-    else {
+    } else if (this.currentWeather.wind > 80) {
+      isSnowshoeWeather = false;
+    } else {
       isSnowshoeWeather = true;
     }
 
     return isSnowshoeWeather;
-  }
-
-  ngOnInit(): void {
   }
 }

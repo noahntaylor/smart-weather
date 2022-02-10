@@ -2,11 +2,15 @@
   <header></header>
   <div class="app-main">
     <div class="row-container">
-      <current-weather></current-weather>
-      <weather-history></weather-history>
+      <current-weather
+        [weatherLocation]="location"
+        [locations]="locations"
+        (locationChangeEvent)="updateLocation($event)"
+      ></current-weather>
+      <weather-history [weatherLocation]="location"></weather-history>
     </div>
     <div class="container">
-      <forecast></forecast>
+      <forecast [weatherLocation]="location"></forecast>
     </div>
   </div>
 </div>
