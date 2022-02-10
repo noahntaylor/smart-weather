@@ -22,6 +22,8 @@ export class WeatherHistoryComponent {
   }
 
   getFiveDayWeatherHistory() {
+    this.weatherHistory = [];
+
     const today: Date = new Date(Date.now());
     var previousDay: Date = new Date();
 
