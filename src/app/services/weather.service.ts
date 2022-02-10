@@ -21,6 +21,6 @@ export class WeatherService {
 
   // Get required historical weather data with One Call OpenWeatherMap API
   getWeatherHistory(lat: number, long: number, date: string) {
-    return this.httpClient.get(`http://api.openweathermap.org/data/2.5/onecall/timemachine?lat=${lat}&lon=${long}&exclude=exclude=minutely,hourly&units=metric&dt=${date}&appid=${environment.apiKey}`);
+    return this.httpClient.get(`https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=${lat}&lon=${long}&exclude=exclude=minutely,hourly&units=metric&dt=${date}&appid=${environment.apiKey}`);
   }
 }
