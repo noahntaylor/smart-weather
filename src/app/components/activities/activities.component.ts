@@ -11,7 +11,7 @@ import { Weather } from 'src/app/models/weather.model';
 export class ActivitiesComponent {
   @Input("currentWeather") currentWeather: Weather;
 
-  // font-awesome icons
+  // Icons
   faRunning = faRunning;
   faDumbbell = faDumbbell;
   faBiking = faBiking;
