@@ -13,7 +13,18 @@ export class WeatherHistoryComponent {
   @Input() weatherLocation: WeatherLocation;
 
   historicWeatherObject: any = {};
-  weatherHistory: Weather[] = [];  
+  weatherHistory: Weather[] = [];
+
+  get sortedWeatherHistory(): Weather[] {
+    var sortedWeather = this.weatherHistory.sort(      
+      (weatherA, weatherB) => {
+        var dateA = new Date(weatherA.date);
+        var dateB = new Date(weatherB.date);
+        return dateA.getTime() - dateB.getTime()},
+    );
+
+    return sortedWeather;
+  }
 
   constructor(private weatherService: WeatherService, private dateService: DateService) { }
 
@@ -48,6 +59,6 @@ export class WeatherHistoryComponent {
       this.weatherHistory.push(new Weather(dateString, dayOfWeek, conditions, temperature, +wind.toFixed(2)));
 
       this.historicWeatherObject = {};
-    });    
+    });
   }
 }

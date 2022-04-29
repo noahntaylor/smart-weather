@@ -1,7 +1,10 @@
 <div class="forecast-container">
   <h2>5 Day Weather History</h2>
   <div class="week-container">
-    <div *ngFor="let dailyWeather of weatherHistory" class="day-container">
+    <div
+      *ngFor="let dailyWeather of sortedWeatherHistory"
+      class="day-container"
+    >
       <div class="row date-row">
         <span>{{ dailyWeather.dayOfWeek }}</span>
         <span>{{ dailyWeather.date }}</span>
