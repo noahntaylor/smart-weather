@@ -38,7 +38,7 @@ export class WeatherHistoryComponent {
     const today: Date = new Date(Date.now());
     var previousDay: Date = new Date();
 
-    for (var i=5; i>0; i--) {      
+    for (var i=1; i<=5; i++) {      
       previousDay.setDate(today.getDate() - i);
       var historyDate = Math.floor(previousDay.getTime() / 1000).toString();
       this.getWeatherHistory(historyDate);
